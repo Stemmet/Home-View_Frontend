@@ -21,19 +21,21 @@
     <div class="holy-grail-body">
 
         <section class="holy-grail-content">
+            <form @submit.prevent="login">
             <div class="module form-module">
         <div class="toggle">
             <i class="bi bi-x bi-pencil"></i>
         </div>
-        <div class="form">
-            <h2>Login to your account</h2>
-            <form>
-                <input type="text" placeholder="Username">
-                <input type="password" placeholder="Password">
-                <button>Login</button>
-            </form>
+            <div class="form">
+                <h2>Login to your account</h2>
+                <form>
+                    <input type="email" placeholder="Email" v-model="email" autocomplete="on" required>
+                    <input type="password" placeholder="Password" v-model="password" autocomplete="on" required>
+                    <button type="submit">Login</button>
+                </form>
+            </div>
         </div>
-        </div>
+    </form>
         </section>
 
         <div class="holy-grail-sidebar-1 hg-sidebar">
@@ -60,6 +62,32 @@ export default {
   name: 'HomeView',
   components: {
     Navbar,
+}, computed: {
+    token(){
+    return this.$store.state.token
+    },
+    user(){
+        return this.$store.state.user 
+    }
+},
+data(){
+    return{
+        email: "",
+        password: ""
+    }
+},
+methods:{
+    async login(){
+        if (!this.$store.state.token) {
+        //set token into state, starting the login process
+        await this.$store.dispatch("Login", {
+          email: this.email,
+          password: this.password,
+        });
+        //then login and set user into state
+        this.$store.dispatch("Verify", this.token);
+    }
+}
 }
 }
 </script>

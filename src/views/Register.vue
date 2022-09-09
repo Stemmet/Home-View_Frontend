@@ -26,24 +26,29 @@
     <form>
         <div class="input-box">
     <input type="password" required="required">
-    <span>First name</span>
+    <span>name</span>
 </div>
+
 <div class="input-box">
     <input type="password" required="required">
-    <span>last name</span>
+    <span> surname</span>
 </div>
-        <div class="input-box">
-            <input type="text" required="required">
-            <span>Username</span>
-   </div>
+        
    <div class="input-box">
        <input type="text" required="required">
     <span>e-mail</span>
    </div>
+
    <div class="input-box">
        <input type="password" required="required">
     <span>password</span>
    </div>
+
+   <div class="input-box">
+            <input type="text" required="required">
+            <span>Username</span>
+   </div>
+
    <div class="input-box">
     <input type="password" required="required">
     <span>confirm password</span>

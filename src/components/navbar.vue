@@ -6,25 +6,25 @@
     </label>
 
     <ul class="menu__box">
-        <li style="--clr:#38A3A5">
+        <li style="--clr:#C7F9CC">
             <a href="/" data-text="Home" class="menu__item">Home</a>
         </li>
-        <li style="--clr:#38A3A5">
+        <li style="--clr:#C7F9CC">
             <a href="/about" data-text="About" class="menu__item">About&nbsp;</a>
         </li>
-        <li style="--clr:#38A3A5">
+        <li style="--clr:#C7F9CC">
             <a href="/Blogs" data-text="Blogs" class="menu__item">Blogs&nbsp;</a>
         </li>
-        <li style="--clr:#38A3A5">
+        <li style="--clr:#C7F9CC">
             <a href="/Contact" data-text="Contact" class="menu__item">Contact&nbsp;</a>
         </li>
-        <li style="--clr:#38A3A5">
+        <li style="--clr:#C7F9CC">
             <a href="/Login" data-text="Login" class="menu__item">Login&nbsp;</a>
         </li>
-        <li style="--clr:#38A3A5">
+        <li style="--clr:#C7F9CC">
             <a href="/Register" data-text="Register" class="menu__item">Register&nbsp;</a>
         </li>
-        <li style="--clr:#38A3A5">
+        <li style="--clr:#C7F9CC">
             <a href="/SingleBlog" data-text="Single" class="menu__item">Single&nbsp;</a>
         </li>
     </ul>
@@ -70,7 +70,7 @@
   position: absolute;
   width: 100%;
   height: 2px;
-  background-color: #38A3A5;
+  background-color: #fff;
   transition-duration: .25s;
   z-index: 999999;
 }
@@ -92,7 +92,7 @@
   margin: 0;
   padding: 80px 0;
   list-style: none;
-  background-color: #57CC99;
+  background-color: #38A3A5;
   box-shadow: 2px 2px 6px rgba(0, 0, 0, .4);
   transition-duration: .25s;
   z-index: 999999;
@@ -115,7 +115,7 @@ ul li a{
     line-height: 1.5em;
     text-transform: uppercase;
     color: transparent;
-    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.5);
+    -webkit-text-stroke: 1px #bbb;
     padding: 0 2em 0 2em;
 }
 ul li a::before {

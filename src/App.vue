@@ -1,5 +1,6 @@
 <template>
   <profileLink/>
+  
   <router-view v-slot="{ Component }">
     <transition name="route" mode="out-in">
       <component :is="Component">
@@ -35,7 +36,7 @@ export default {
 }
 
 html, body {
-    background: linear-gradient(#C7F9CC,#fff);
+    background: linear-gradient(#38A3A5,#C7F9CC,#fff);
     background-repeat: no-repeat;
     margin: 0;
     padding: 0;

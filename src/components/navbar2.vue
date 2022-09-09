@@ -1,174 +1,137 @@
 <template>
-    <div class="container">
-<div class="navigation">
-  <div class="menu-toggle"></div>
-  <ul class="list">
-    <li class="list-item active" style="--color:#1BC23E"><router-link to="/">
-      <span class="icon">
-        <i class="bi bi-house-door"></i>
-      </span>
-      <span class="text">Home</span>
-      </router-link></li>
-      <li class="list-item" style="--color:#1BC23E"><router-link to="/products">
-        <span class="icon">
-          <i class="bi bi-tree"></i>
-        </span>
-        <span class="text">Products</span>
-        </router-link></li>
-    <li class="list-item" style="--color:#1BC23E"><router-link to="/About">
-      <span class="icon">
-        <i class="bi bi-info-circle"></i>
-      </span>
-      <span class="text">About</span>
-      </router-link></li>
-    <li class="list-item" style="--color:#1BC23E"><router-link to="/contact">
-      <span class="icon">
-        <i class="bi bi-ui-checks"></i>
-      </span>
-      <span class="text">Contact</span>
-      </router-link></li>
-        <li class="list-item" style="--color:#1BC23E"><router-link to="/admin">
-        <span class="icon">
-          <i class="bi bi-archive"></i>
-        </span>
-        <span class="text">Admin</span>
-        </router-link></li>
-      <li class="list-item" style="--color:#1BC23E"><router-link to="/login">
-        <span class="icon">
-          <i class="bi bi-door-open"></i>
-        </span>
-        <span class="text">Login/Sign Up</span>
-        </router-link></li>
-    </ul>
-  </div>
+  <div class="hamburger-menu">
+  <input id="menu__toggle" type="checkbox" />
+  <label class="menu__btn" for="menu__toggle">
+    <span></span>
+  </label>
+
+  <ul class="menu__box">
+      <li style="--clr:#38A3A5">
+          <a href="/" data-text="Home" class="menu__item">Home</a>
+      </li>
+      <li style="--clr:#38A3A5">
+          <a href="/about" data-text="About" class="menu__item">About&nbsp;</a>
+      </li>
+      <li style="--clr:#38A3A5">
+          <a href="/Blogs" data-text="Blogs" class="menu__item">Blogs&nbsp;</a>
+      </li>
+      <li style="--clr:#38A3A5">
+          <a href="/Contact" data-text="Contact" class="menu__item">Contact&nbsp;</a>
+      </li>
+      <li style="--clr:#38A3A5">
+          <a href="/Login" data-text="Login" class="menu__item">Login&nbsp;</a>
+      </li>
+      <li style="--clr:#38A3A5">
+          <a href="/Register" data-text="Register" class="menu__item">Register&nbsp;</a>
+      </li>
+      <li style="--clr:#38A3A5">
+          <a href="/SingleBlog" data-text="Single" class="menu__item">Single&nbsp;</a>
+      </li>
+  </ul>
+
 </div>
 </template>
 
-
 <script>
-    export default {
-      data() {
-        return {
-    
-        }
-      },
-      mounted() {
-         const menuToggle = document.querySelector('.menu-toggle');
-    const navigation = document.querySelector('.navigation');
-    menuToggle.onclick = () => {
-      navigation.classList.toggle('open');
-    }
-    
-    const listItems = document.querySelectorAll('.list-item');
-    listItems.forEach(item => {
-      item.onclick = () => {
-        listItems.forEach(item => item.classList.remove('active'));
-        item.classList.add('active');
-      }
-    })
-      }
-    }
+
 </script>
 
 <style scoped>
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  #menu__toggle {
+opacity: 0;
+}
+#menu__toggle:checked + .menu__btn > span {
+transform: rotate(45deg);
+}
+#menu__toggle:checked + .menu__btn > span::before {
+top: 0;
+transform: rotate(0deg);
+}
+#menu__toggle:checked + .menu__btn > span::after {
+top: 0;
+transform: rotate(90deg);
+}
+#menu__toggle:checked ~ .menu__box {
+left: 0 !important;
+}
+.menu__btn {
+position: fixed;
+top: 20px;
+left: 20px;
+width: 26px;
+height: 26px;
+cursor: pointer;
+z-index: 9999999;
+}
+.menu__btn > span,
+.menu__btn > span::before,
+.menu__btn > span::after {
+display: block;
+position: absolute;
+width: 100%;
+height: 2px;
+background-color: #38A3A5;
+transition-duration: .25s;
+z-index: 999999;
+}
+.menu__btn > span::before {
+content: '';
+top: -8px;
+}
+.menu__btn > span::after {
+content: '';
+top: 8px;
+}
+.menu__box {
+display: block;
+position: fixed;
+top: 0;
+left: -100%;
+max-width: 20rem;
+height: 100%;
+margin: 0;
+padding: 80px 0;
+list-style: none;
+background-color: #57CC99;
+box-shadow: 2px 2px 6px rgba(0, 0, 0, .4);
+transition-duration: .25s;
+z-index: 999999;
 }
 
-.navigation {
-  position: fixed;
-  inset: 20px 0 20px 20px;
-  width: 75px;
-  min-height: 500px;
-  background: #fff;
-  transition: 0.5s;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.navigation.open {
-  width: 250px;
-  z-index: 100;
-}
-
-.navigation .menu-toggle {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 60px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
-  cursor: pointer;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  padding: 0 20px;
-}
-
-.navigation .menu-toggle::before {
-  content: '';
-  position: absolute;
-  width: 30px;
-  height: 2px;
-  background: #333;
-  transform: translateY(-8px);
-  transition: 0.5s;
-}
-
-.navigation.open .menu-toggle::before {
-  transform: translateY(0) rotate(45deg);
-}
-
-.navigation .menu-toggle::after {
-  content: '';
-  position: absolute;
-  width: 30px;
-  height: 2px;
-  background: #333;
-  transform: translateY(8px);
-  transition: 0.5s;
-  box-shadow: 0 -8px 0 #333;
-}
-
-.navigation.open .menu-toggle::after {
-  transform: translateY(0) rotate(-45deg);
-  box-shadow: none;
-}
-
-.navigation ul {
+ul{
+  position: relative;
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  width: 100%;
+  gap: 30px;
 }
-
-
-.navigation ul li {
-  list-style: none;
+ul li{
   position: relative;
-  width: 100%;
-  height: 60px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  padding: 0 10px;
-  cursor: pointer;
-  transition: 0.5s;
+  list-style: none;
 }
-
-.navigation ul li.active {
-  transform: translateX(30px);
+ul li a{
+  font-size: 1.5em;
+  text-decoration: none;
+  letter-spacing: 2px;
+  line-height: 1.5em;
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.5);
+  padding: 0 2em 0 2em;
 }
-
-.navigation.open ul li.active {
-  transform: translateX(10px);
+ul li a::before {
+  content: attr(data-text);
+  position: absolute;
+  color: var(--clr);
+  width: 0;
+  overflow: hidden;
+  transition: 0.75s;
+  left: 0;
+  border-right: 7px solid var(--clr);
+  -webkit-text-stroke: 1px var(--clr);
 }
-
-
+ul li a:hover::before {
+  padding-left: 2em;
+  width: 75%;
+  filter: drop-shadow(0 0 25px var(--clr));
+}
 </style>
-
